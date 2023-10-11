@@ -1,0 +1,7 @@
+<div *ngIf="activeCompareItem" class="col-md-6 pull-left">
+	<compare-item [(activeCompareItem)]="activeCompareItem"></compare-item>
+</div>
+<div *ngIf="!addAnotherCompareItem" (click)="addAnotherCompareItem=true" class="col-md-6 pull-left" >
+	<button class="readMoreMessages form-control addAnotherItem" (click)="addAnotherCompareItem=true" >Add another item for comparision ...</button>
+</div>
+<compare-item-node *ngIf="addAnotherCompareItem"></compare-item-node>

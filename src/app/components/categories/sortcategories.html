@@ -1,0 +1,3 @@
+<select [(ngModel)]="selectedValue" (change)="applySort($event)" class="form-control" >
+	<option *ngFor="let sort of sorties || []" [value]="sort.id">{{sort.name}}</option>
+</select>

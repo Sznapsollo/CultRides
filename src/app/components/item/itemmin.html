@@ -1,0 +1,38 @@
+<h2 *ngIf="fullView">{{item.title}}</h2>
+<div class="itemMin" itemscope itemtype="http://schema.org/Review">
+	<div *ngIf="!fullView" class="header grow" (click)="goToCultRide(item.nid)"><h2 itemprop="model">{{item.title}}</h2></div>
+	<div class="checkered">Number <span class="rank">{{item.rank}}</span> in cult ranking</div>
+	<div class="body" itemprop="itemReviewed" itemscope itemtype="http://schema.org/Car">
+		<div class="img"><a [routerLink]="['/cultride', item.nid]" class="grow-rotate"><img itemprop="image" alt="{{item.filenameAlt}}" title="{{item.filenameTitle}}" src="graphics/CarImages/{{item.filename}}" /></a>
+			<div *ngIf="!fullView" style="position: absolute;margin: -20px 0 -20px 0"><vote-item [votes]="item.votes" [id]="item.nid"></vote-item></div>
+		</div>
+		<div class="text">
+			<div class="dataRow"><span class="dataLabel" itemprop="displacement">Displacement:</span> <span class="dataPiece">{{item.displacement}}</span> <span class="dataUnit">ccm</span></div>
+			<div class="dataRow"><span class="dataLabel" itemprop="engineType">Engine:</span> <span (click)="goToCategoryPage(item.engineLayout)" class="dataPiece categoryLink">{{item.engineLayout}}</span></div>
+			<div class="dataRow"><span class="dataLabel" itemprop="horsePower">Horsepower:</span> <span class="dataPiece">{{item.horsepower}}</span> <span class="dataUnit">PS</span></div>
+			<div class="dataRow"><span class="dataLabel">Torque:</span> <span class="dataPiece">{{item.torque}}</span> <span class="dataUnit">Nm</span></div>
+			<div class="dataRow"><span class="dataLabel">0-100 km/h (s):</span> <span class="dataPiece">{{item.acceleration | number:'1.1-2'}}</span> <span class="dataUnit">s</span></div>
+			<div class="dataRow"><span class="dataLabel" itemprop="brand">Car maker:</span> <span (click)="goToCategoryPage(item.make)" class="dataPiece categoryLink">{{item.make}}</span></div>			
+
+			<div *ngIf="moreInfo || fullView" class="dataRow"><span class="dataLabel" itemprop="prodyear">Production Start:</span> <span class="dataPiece">{{item.productionStart}}</span></div>
+			<div *ngIf="moreInfo || fullView" class="dataRow"><span class="dataLabel" itemprop="prodyear">Production End:</span> <span class="dataPiece">{{item.productionEnd}}</span></div>
+			<div *ngIf="moreInfo || fullView" class="dataRow"><span class="dataLabel">Engine code:</span> <span class="dataPiece">{{item.engineCode}}</span></div>
+			<div *ngIf="moreInfo || fullView" class="dataRow"><span class="dataLabel">Weight:</span> <span class="dataPiece">{{item.weight}}</span> <span class="dataUnit">kg</span></div>
+			
+			<div *ngIf="!fullView" class="dataRow"><a [routerLink]="['/cultride', item.nid]"><i class="fa fa-comments-o fa-lg fa-fw" aria-hidden="true"></i>&nbsp; {{item.commentsCount}} Comments</a></div>
+			<div *ngIf="!fullView" class="dataRow"><a [routerLink]="['/cultride', item.nid]"><i class="fa fa-link fa-lg fa-fw" aria-hidden="true"></i>&nbsp; {{item.linksCount}} Links</a></div>
+		</div>
+	</div>
+	<div *ngIf="fullView" class="fullView row" >
+		<div class="col-md-6">
+			<vote-item [votes]="item.votes" [id]="item.nid"></vote-item>
+		</div>
+		<div class="col-md-6 right">
+			<ul class="socials">
+				<li><a class="fa fa-facebook"  href="http://www.facebook.com/share.php?u=http://www.cultrides.com/data/SocialHeaders.php?id={{item.nid}}" target="_blank" title="Facebook"></a></li>
+				<!--<li><a class="fa fa-twitter" href="https://twitter.com/cultrides" target="_blank" title="Twitter"></a></li>-->
+				<li><a class="fa fa-google-plus" href="https://plus.google.com/share?url=http://www.cultrides.com/data/SocialHeaders.php?id={{item.nid}}" target="_blank" title="Google+"></a></li>
+			</ul>
+		</div>
+	</div>
+</div>

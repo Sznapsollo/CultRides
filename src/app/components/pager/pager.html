@@ -1,0 +1,21 @@
+<div class="pagerArea">
+	<span class="choosePageArea">Items per page: 
+		<select [value]="pageLimit" (change)="onInputEvent($event)" class="form-control">
+            <option *ngFor="let o of itemsPerPageArray" [value]="o">{{o}}</option>
+        </select>
+	</span>
+	<div id="pagerSeparator"></div>
+	<a *ngIf="canGoBack" (click)="goFirst()" ><<</a>
+	<a *ngIf="canGoBack" (click)="goPrevious()" ><</a>
+
+	<span class="choosePageArea">Page: 
+		<select [(ngModel)]="selectedPage" (change)="updateSelectedPage($event)" class="form-control">
+            <option *ngFor="let page of pages" [value]="page">{{page+1}}</option>
+        </select>
+	</span>
+
+	<a *ngIf="canGoNext" (click)="goNext()" >></a>
+	<a *ngIf="canGoNext" (click)="goLast()" >>></a>
+
+
+</div>

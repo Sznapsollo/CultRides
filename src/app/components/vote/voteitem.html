@@ -1,0 +1,15 @@
+<div class="voteSection" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">	
+	<div class="voteUp grow" (click)="voteUp()"><i class="fa fa-thumbs-up fa-3x" aria-hidden="true"></i></div>
+	<div class="voteDown grow" (click)="voteDown()"><i class="fa fa-thumbs-down fa-2x" aria-hidden="true"></i></div>
+	<div itemprop="ratingValue" class="voteNumber" [ngClass]="{'voteNumberPositive':(votes > 0),'voteNumberNegative':(votes <= 0)}" *ngIf="!showingMessage"><i *ngIf="dataLoading" class="voteThinker it-thinker fa  fa-2x fa-spinner fa-spin"></i>{{votes}}<span class="points">points</span></div>
+	<div class="voteMessage" *ngIf="showingMessage">{{voteMessage}}</div>
+</div>    
+
+<!--
+<div class="voteSection" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+	<div class="voteUp grow" ng-click="vote.voteUp()"><i ng-show="vote.dataLoading" class="voteThinker fa  fa-2x fa-spinner fa-spin"></i><img src="grafika/icon_thumbs_up.png" alt="Vote Up"/></div>
+	<div class="voteDown grow" ng-click="vote.voteDown()"><img src="grafika/icon_thumbs_down.png" alt="Vote Down"/></div>
+	<div itemprop="ratingValue" class="voteNumber" ng-hide="vote.showingMessage()">{{cultride.votes}}<span class="points">points</span></div>
+	<div class="voteMessage" ng-show="vote.showingMessage()">{{vote.voteMessage}}</div>
+</div>    
+-->

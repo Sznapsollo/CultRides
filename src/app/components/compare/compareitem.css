@@ -1,0 +1,24 @@
+form {
+	margin: 0 0 10px 0;
+}
+
+.compareItemNode {
+	margin: 0px 0 40px 0;
+}
+
+.search-results { 
+	width: 100%;
+	display: block; 
+	padding: 0; 
+	overflow: hidden; 
+	font-size: .9rem;
+	float: left;
+	margin-top: 0px;
+	position: relative;
+}
+
+.deleteComaprision {
+	position: absolute;
+	right: 0px;
+	color: #ed1437;
+}

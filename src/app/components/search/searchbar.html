@@ -1,0 +1,24 @@
+<div id="searchRoot">
+	<div>
+		<sort-categories></sort-categories>
+	</div>
+	<div>
+		<main-categories></main-categories>
+	</div>
+	<div>
+		<form [formGroup]="searchBarForm" (ngSubmit)="onSubmit()" novalidate >
+			<input type="text" (focus)="enableAutocomplete = true" (blur)="stopSuggestions()" [value]="searchPhraze" (input)="onSearchChange($event)" formControlName="searchInput" name="search" class="form-control form-control-sm" placeholder="{{searchPlaceholder}}" autocomplete="off"/>
+		</form>
+	</div>
+	<div>
+		<button type="button" class="wobble-top" (click)="submitSearch()"><i class="fa fa-search"></i></button>
+	</div>
+	<div>
+		<a class="resetSearch pointer" (click)="clearSearch()">clear</a>
+	</div>
+</div>
+
+<div class="dropdown-menu search-results">
+	<i *ngIf="dataLoading" class="it-thinker fa fa-spinner fa-spin"></i>
+    <a *ngFor="let suggestion of suggestions || []" class="dropdown-item" (click)="useSuggestion(suggestion.id)">{{suggestion.text}}</a>
+</div>

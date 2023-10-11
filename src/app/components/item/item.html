@@ -1,0 +1,27 @@
+<search-parameters></search-parameters>
+
+<div class="initiallyHidden pageContent">
+	<div class="articlePage row">
+
+		<div class="col-md-6">
+			<i *ngIf="!itemReady" class="it-thinker fa fa-spinner fa-4x fa-spin"></i>
+			<item-min *ngIf="itemReady" [fullView]="true" [item]=item></item-min>
+
+			<comments-group [parentId]="0" [itemId]="item.nid" >
+				<h2>Comments</h2> 
+				<div class="hint">Comments section. Rude comments, advertising stuff and spam will be removed. Treat others with respect and you shall receive same in return. Cultrides.com takes no responsibility and assumes no liability for any comments posted by its visitors.</div>						
+			</comments-group>
+		</div>
+		<div class="col-md-6">
+			<comments-group [parentId]="0" [itemId]="item.nid" [linksData]="true">
+				<h2>Links / Movies / Projects</h2>  
+				<div class="hint">This section will contain links to projects, movies, pictures, forum threads related to {{item.title}}. Just paste link to image or youtube video and page will display its preview. 
+					<span class="important">This place is designed for pure information and links to content only. For chatting please use "Comments" section. </span> 
+					Cultrides.com takes no responsibility and assumes no liability for any comments posted by its visitors.
+					Please don't use this section for advertising your stuff. Interesting links will be shared by us on facebook. Spam and insignificant entries will be removed.</div>
+			</comments-group>
+		</div>
+
+	</div>
+</div>
+

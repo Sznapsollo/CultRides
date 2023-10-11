@@ -1,0 +1,58 @@
+.voteThinker {
+	position: absolute;
+}
+
+.voteSection > div {
+	display: table-cell;
+	padding: 5px;
+}
+
+.voteNumber,
+.voteMessage {
+	width: 100px;
+	padding-top: 0px;
+	text-align: left;
+	vertical-align: bottom;
+}
+
+.voteNumber
+{
+	height: 33px;
+	line-height: 33px;
+	font-size: 15pt;
+	padding: 0px 0px 0 10px;
+}
+
+.voteNumberPositive {
+	color: #00990B;
+}
+
+.voteNumberNegative {
+	color: red;
+}
+
+.voteMessage
+{
+	font-size: 8pt;
+	line-height: 10px;
+	height: 36px;
+	color: #6C767D;
+	vertical-align: middle;
+}
+
+.points
+{
+	font-size: 10pt;
+	color: #6C767D;
+	padding-left: 5px;
+}
+
+.voteUp {
+	color: #00990B;
+	cursor: pointer;
+}
+
+.voteDown {
+	color: #919191;
+	cursor: pointer;
+}

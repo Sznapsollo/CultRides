@@ -1,0 +1,25 @@
+<form accept-charset="UTF-8" class="new_comment" [formGroup]="addCommentForm" (ngSubmit)="onSubmit()" novalidate >
+	<div class='field message_field'>
+		<textarea [ngClass]="{'invalid': !this.addCommentForm.get('commentBody')?.value || (addCommentForm.hasError('minlength', ['commentBody'])&&!addCommentForm.hasError('maxlength', ['commentBody']))}" placeholder="your comment here ..." formControlName="commentBody" rows="6" class="form-control" ></textarea>
+		<div class="warning" *ngIf="addCommentForm.hasError('minlength', ['commentBody'])&&!addCommentForm.hasError('maxlength', ['commentBody'])">Text length must be between 3 and 1000 characters</div>
+	</div>
+	<div class="hint" style>{{antiSpamMessage}}</div>
+	<div class="form-row align-items-center">
+    		<div class="col-sm-3">
+				<input [ngClass]="{'invalid': !this.addCommentForm.get('antiSpam')?.value || (addCommentForm.hasError('antiRobotValidator', ['antiSpam']))}" placeholder="anti spam text ..." type="text" formControlName="antiSpam" class="form-control" />
+			</div>
+			<div class="col-sm-3">
+				<input [ngClass]="{'invalid': !this.addCommentForm.get('nickName')?.value || (addCommentForm.hasError('minlength', ['nickName'])&&!addCommentForm.hasError('maxlength', ['nickName']))}" placeholder="your nickname ..."  type="text" formControlName="nickName" class="form-control" />
+			</div>
+			<div class="col-auto">
+				<input name="commit" type="submit" [disabled]="!addCommentForm.valid" value="Send" class="form-control btn btn-primary" />
+			</div>
+		</div>
+	<div class="warning" *ngIf="addCommentForm.hasError('antiRobotValidator', ['antiSpam'])">Anti spam field: {{antiSpamMessage}}</div>
+	<div class="warning" *ngIf="addCommentForm.hasError('minlength', ['nickName'])&&!addCommentForm.hasError('maxlength', ['nickName'])">Your Name: Text length must be between 3 and 50 characters</div>
+  	<div class="errorMsg">{{commentsSyncMessage}}<i *ngIf="dataLoading" class="fa fa-spinner fa-spin"></i></div>
+</form>
+<article class='blog_message' *ngFor="let comment of comments || []">
+	<comment-item [comment]="comment" [itemId]="itemId" [linksData]="linksData"></comment-item>
+</article>
+

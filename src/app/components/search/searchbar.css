@@ -1,0 +1,40 @@
+#searchRoot > div {
+	display: inline-block;
+	margin: 0 10px 0 0;
+	color: #ffffff;
+}
+
+#searchRoot .resetSearch {
+	cursor: pointer;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#searchRoot button {
+	cursor: pointer;
+	color: #ed1437;
+	color: #ed1437;
+}
+
+#searchRoot button {
+	cursor: pointer;
+	border-color: #ed1437;
+	color: #ed1437;
+	background: white;
+	padding: 3px 10px;
+	border-radius: 5px;
+}
+
+#autocompletePopupContent {
+	position: absolute;
+}
+
+
+.search-results { 
+	right: 0; 
+	display: block; 
+	padding: 0; 
+	overflow: hidden; 
+	font-size: .9rem;
+	float: right;
+	margin-top: 0px;
+}

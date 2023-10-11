@@ -1,0 +1,131 @@
+<a href="javascript:" id="return-to-top"><span></span></a>
+<div id="printLogo"><img src="graphics/logo.png" alt="Cars News"></div>
+<div id="mySideMenu" class="sideMenu">
+	<a href="javascript:void(0)" class="closebtn" onclick="jsHelper.closeSideMenu()">×</a>
+	<div class="mainmenu">
+		<ul>
+			<li class="active">
+				<a [routerLink]="['/']" [ngClass]="getIfElse('/','active','')" class="mainMenuTitle">
+					<span class="">Home</span>
+				</a>
+			</li>
+			<li>
+				<a [routerLink]="['/compareitems']" [ngClass]="getIfElse('/compareitems','active','')" class="mainMenuTitle">
+					<span class="">Compare Rides</span>
+				</a>
+			</li>
+			<li>
+				<a [routerLink]="['/additem']" [ngClass]="getIfElse('/additem','active','')" class="mainMenuTitle">
+					<span class="">Add Cult Ride</span>
+				</a>
+			</li>
+			<li>
+				<a (click)="randomItem()" class="mainMenuTitle randomItem">
+					<span class="">Random Ride</span>
+				</a>
+			</li>
+			<li>
+				<a [routerLink]="['/aboutus']" [ngClass]="getIfElse('/aboutus','active','')" class="mainMenuTitle">
+					<span class="">About Us</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div id="wrapper">
+	<div id="wrapper-inner">
+		<div id="topMobileMenu" onclick="jsHelper.openSideMenu()">
+			<div class="mobileMenuImg"></div>
+			<div class="mobileMenuTitle">
+				<div>
+					{{getIfElse('/','Home','')}}
+					{{getIfElse('/cultride','Home','')}}
+					{{getIfElse('/compareitems','Compare Rides','')}}
+					{{getIfElse('/additem','Add Cult Ride','')}}
+					{{getIfElse('/aboutus','About Us','')}}
+				</div>
+				<div class="topMobileHeader"> ONLINE RANKING OF MOST CULT AND DESIRED PRODUCTION CARS</div>
+			</div>
+		</div>
+		<div id="top">
+			<div class="rowcontainer">
+				<div id="logo">
+					<a [routerLink]="['/']">
+						<img src="graphics/logo.png" alt="Cars News">
+					</a>
+				</div>
+				<div id="topHeader"> ONLINE RANKING OF MOST CULT AND DESIRED PRODUCTION CARS</div>
+				<div class="moduletable searchblock">
+					<div class="modulecontainer">
+						<i class="icon-search fa fa-search"></i>
+					</div>
+				</div>
+				<div class="moduletable">
+					<div class="modulecontainer">
+						<div class="votesInfo">
+							<items-and-votes-count-info></items-and-votes-count-info>
+						</div>
+						<div class="mainmenu">
+							<ul>
+								<li class="active">
+									<a [routerLink]="['/']" [ngClass]="getIfElse('/','active','')" class="mainMenuTitle">
+										<span class="">Home</span>
+									</a>
+								</li>
+								<li>
+									<a [routerLink]="['/compareitems']" [ngClass]="getIfElse('/compareitems','active','')" class="mainMenuTitle">
+										<span class="">Compare Rides</span>
+									</a>
+								</li>
+								<li>
+									<a [routerLink]="['/additem']" [ngClass]="getIfElse('/additem','active','')" class="mainMenuTitle">
+										<span class="">Add Cult Ride</span>
+									</a>
+								</li>
+								<li>
+									<a (click)="randomItem()" class="mainMenuTitle randomItem">
+										<span class="">Random Ride</span>
+									</a>
+								</li>
+								<li>
+									<a [routerLink]="['/aboutus']" [ngClass]="getIfElse('/aboutus','active','')" class="mainMenuTitle">
+										<span class="">About Us</span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="blockBreaker"></div>
+		<div id="searchSection">
+			<div>
+				<div class="votesInfo">
+					<items-and-votes-count-info></items-and-votes-count-info>
+				</div>
+				<div class="searchForm">
+					<search-bar-component></search-bar-component>
+				</div>
+			</div>
+		</div>
+		<div id="bannerSection">
+			<div>
+			<div class="shrinkBanner">
+				Click to shrink banner
+			</div>
+			<div class="inner">
+				
+			</div>
+			</div>
+		</div>
+		<div id="content">
+			<div id="bannerExpandSection"><div class="inner"><span>Click to expand banner</span></div></div>
+			<div class="inner">
+				<router-outlet></router-outlet>
+			</div>
+		</div>
+	</div>
+</div>
+<page-footer></page-footer>
+

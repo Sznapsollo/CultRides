@@ -1,0 +1,38 @@
+#bottom {
+    max-width: 1230px;
+    margin: 0 auto;
+    background: #ed1437;
+	color: #ffffff;
+}
+
+.socials li .separator {
+    font-size: 17px;
+    margin-right: 29px;
+}
+
+.socials a {
+    width: 70px;
+    line-height: 70px;
+    color: #ffffff;
+}
+
+.socials a:hover {
+    background: #000000;
+}
+
+ul.socials {
+	margin: 0px;
+}
+
+.socials li {
+	text-align: center;
+	display: inline;
+}
+
+.rightsRes {
+	background-color: rgba(34, 39, 46, 0.8);
+	text-align: center;
+	font-size: 10px;
+}
+
+

@@ -1,0 +1,53 @@
+
+.pagerArea
+{
+	text-align: center;
+	clear: both;
+	padding: 25px 0 15px 0;
+	font-weight: 700;
+}
+
+.pagerArea select {
+	width: auto;
+	display: inline;
+}
+
+.pagerArea .choosePageArea
+{
+	margin: 0 10px 0 10px;
+}
+
+.pagerArea  A {
+	cursor: pointer;
+  color: #555555;
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid #ffffff;
+
+  border-radius: 5px;
+  
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.3);
+}
+
+.pagerArea  A:visited {
+  color: #555555;
+  text-decoration: none;
+}
+
+.pagerArea  A:active {
+  color: #555555;
+  text-decoration: none;
+}
+
+.pagerArea  A:hover {
+  color: #ed1437;
+  text-decoration: none;
+  border: 1px solid #ed1437;
+  border-radius: 5px;
+}
+
+#pagerSeparator
+{
+	display: none;
+}

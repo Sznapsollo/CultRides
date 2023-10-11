@@ -1,0 +1,17 @@
+.addAnotherItem
+{
+	background: rgba(237, 20, 55, 0.1);
+	margin: 0px 0 40px 0;
+
+	-webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.addAnotherItem:hover
+{
+	background: #ed1437;
+	color: #ffffff;
+}

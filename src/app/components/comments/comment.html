@@ -1,0 +1,18 @@
+<div class="commentBody">
+	<p [innerHTML]="comment.body"></p>
+	<footer>
+		<p>
+			sent by <span class="author">{{comment.name}}</span>,
+			<span class="date">{{comment.created_at*1000 | date : "MMM d, y h:mm a"}}</span><span *ngIf="!replyToComment" class="replyLink" (click)="replyToComment = true" >Reply</span><span *ngIf="!dataLoading && reportedMessage.length == 0" class="reportInvalidLink" (click)="reportInvalidLink()" >Report Invalid Link</span><span *ngIf="reportedMessage.length > 0" class="reportInvalidLink" >{{reportedMessage}}</span>
+		</p>
+	</footer>
+	<div id="{{comment.commentId}}" class="repliesLink" *ngIf="comment.replies > 0 && !showReplies" (click)="showReplies = true">See {{comment.replies}} replies to this message</div>
+
+	<comment-form *ngIf="replyToComment" [parentid]="comment.commentId" [itemId]="itemId" [linksData]="linksData"></comment-form>
+
+	<div class="nextLevelComments">
+		<comments-group *ngIf="showReplies" [parentId]="comment.commentId" [itemId]="itemId" [linksData]="linksData"></comments-group>
+	</div>
+
+	<ng-content></ng-content>
+<div>

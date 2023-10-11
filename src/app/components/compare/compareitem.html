@@ -1,0 +1,13 @@
+<div class="compareItemNode">
+	<i class="fa fa-times fa-3x deleteComaprision grow-rotate" style="cursor: pointer" (click)="inactivateItem()"></i>
+	<form [formGroup]="compareItemForm" (ngSubmit)="onSubmit()" novalidate >
+		<input type="text" placeholder="Start typing to get list of available vehicles" class="search form-control" formControlName="searchItemName">
+	</form>
+
+	<i style="position: absolute" *ngIf="fetchingSuggestions" style="position:absolute" class="fa fa-spinner fa-spin"></i>
+	<div *ngIf= "suggestions && suggestions.length > 0" class="dropdown-menu search-results" >
+	    <a *ngFor="let suggestion of suggestions || []" class="dropdown-item" (click)="useSuggestion(suggestion.id)">{{suggestion.text}}</a>
+	</div>
+
+	<item-min *ngFor="let item of chosenItems || []" [moreInfo]="true" [item]="item"></item-min>
+</div>

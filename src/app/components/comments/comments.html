@@ -1,0 +1,13 @@
+<aside class="comments">
+	<div *ngIf="parentId == 0">
+		<ng-content></ng-content>
+	</div>
+	<comment-form *ngIf="parentId == 0" [parentid]="0" [itemId]="itemId" [linksData]="linksData"></comment-form>
+	<article class='blogMessage' *ngFor="let comment of comments || []; let last = last">
+		<comment-item [comment]="comment" [itemId]="itemId" [linksData]="linksData">
+			<div class="commentBottomBorderNode" *ngIf="!last"></div>
+		</comment-item>
+	</article>
+	
+	<button class="readMoreMessages form-control" *ngIf="canReadMoreComments" (click)="readMoreComments()" ><i *ngIf="dataLoading" class="marginRight10 fa fa-spinner fa-spin"></i>Read more comments ...</button>
+</aside>
